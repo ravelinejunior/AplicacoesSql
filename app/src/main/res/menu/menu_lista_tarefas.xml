@@ -10,13 +10,6 @@
         app:showAsAction="ifRoom"
         />
 
-    <item
-        android:id="@+id/opcao_editar_id_menu"
-        android:title="Editar"
-        android:orderInCategory="200"
-        android:icon="@drawable/ic_menu_send"
-        app:showAsAction="never"
-        />
 
 
 

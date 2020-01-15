@@ -47,11 +47,9 @@ public class AdicionarTarefaActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.opcao_editar_id_menu:
-                Toast.makeText(this,"Editar", Toast.LENGTH_SHORT).show();
-                break;
+
             case R.id.opcao_salvar_id_menu:
-                Toast.makeText(this, "Salvar", Toast.LENGTH_SHORT).show();
+
 
                 //Salvando dados
                 TarefaDAO tarefaDAO = new TarefaDAO(getApplicationContext());
