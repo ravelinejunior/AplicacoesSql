@@ -1,0 +1,16 @@
+<resources>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@android:color/background_dark</item>
+    </style>
+
+
+    <style name="AppTheme.Personalizado">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">#68073B</item>
+        <item name="colorAccent">#8D0D51</item>
+    </style>
+</resources>
