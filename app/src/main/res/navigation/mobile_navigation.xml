@@ -12,22 +12,17 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="activities.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_servicos"
+        android:name="activities.ui.servicos.ServicosFragment"
+        android:label="Serviços"
+        tools:layout="@layout/fragment_servicos" />
+
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="activities.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
-
-    <fragment
-        android:id="@+id/nav_tools"
-        android:name="activities.ui.tools.ToolsFragment"
-        android:label="@string/menu_tools"
-        tools:layout="@layout/fragment_tools" />
+        android:id="@+id/nav_info"
+        android:name="activities.ui.info.InfoFragment"
+        android:label="Informações"
+        tools:layout="@layout/fragment_info" />
 
     <fragment
         android:id="@+id/nav_share"
@@ -40,4 +35,11 @@
         android:name="activities.ui.send.SendFragment"
         android:label="@string/menu_send"
         tools:layout="@layout/fragment_send" />
+
+    <fragment
+        android:id="@+id/nav_contatos"
+        android:name="activities.ui.contatos.ContatosFragment"
+        android:label="Clientes"
+        tools:layout="@layout/fragment_contatos" />
+
 </navigation>

@@ -45,12 +45,29 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
+                //salvar dados
+                SharedPreferences sharedPreferences = getSharedPreferences(NOME_ARQUIVO,MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                String nomeDigitado = textoNomeDigitado.getText().toString();
+
+                //antes de tudo, validar o nome caso usuario nao digite nada
+                if(nomeDigitado.equals("")){
+                    Snackbar.make(view,"Digite seu nome.",Snackbar.LENGTH_LONG).show();
+
+                } else{
+                    editor.putString("nome",nomeDigitado);
+                    editor.commit();
+                    textoNomeExibido.setText("Olá, "+nomeDigitado);
+                    Snackbar.make(view,"Bem vindo "+nomeDigitado,Snackbar.LENGTH_LONG).show();
+                    textoNomeDigitado.setText("");
+                    textoNomeDigitado.clearFocus();
+                }
+
             }
         });
 
-        botaoSalvarDados.setOnClickListener(new View.OnClickListener() {
+  /*      botaoSalvarDados.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
@@ -67,10 +84,11 @@ public class MainActivity extends AppCompatActivity {
                     editor.putString("nome",nomeDigitado);
                     editor.commit();
                     textoNomeExibido.setText("Olá, "+nomeDigitado);
+                    textoNomeDigitado.setText("");
                 }
 
             }
-        });
+        });  */
 
         //recuperar dados que foram salvos
         SharedPreferences sharedPreferences = getSharedPreferences(NOME_ARQUIVO,0);
@@ -79,9 +97,7 @@ public class MainActivity extends AppCompatActivity {
         if (sharedPreferences.contains("nome")){
             String nomeDigitado = sharedPreferences.getString("nome","Usuario invalido");
             textoNomeExibido.setText("Olá, "+nomeDigitado);
-
             Toast.makeText(this, "Bem vindo, "+nomeDigitado, Toast.LENGTH_SHORT).show();
-
 
         }
         else{

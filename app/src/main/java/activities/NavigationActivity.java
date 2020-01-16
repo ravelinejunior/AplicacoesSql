@@ -57,25 +57,22 @@ public class NavigationActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_send)
+                R.id.nav_home, R.id.nav_servicos,
+                R.id.nav_info, R.id.nav_share, R.id.nav_send , R.id.nav_contatos)
                 .setDrawerLayout(drawer)
                 .build();
 
         //configura area de carregamento das fragments
+        //CARREGA OS BOTOES DE NAVEGAÇÕES, E A AREA DE NAVEGAÇÃO
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
 
-        //CARREGA OS BOTOES DE NAVEGAÇÕES, E A AREA DE NAVEGAÇÃO
+        //configura menu superior de navegação
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+
+        //configura a navegação entre os valores de itens no navigation
         NavigationUI.setupWithNavController(navigationView, navController);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.navigation, menu);
-        return true;
-    }
 
     @Override
     public boolean onSupportNavigateUp() {
