@@ -40,14 +40,7 @@ public class NavigationActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Deseja ir para a tela de tarefas?", Snackbar.LENGTH_LONG)
-                        .setAction("Confirmar", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Intent i = new Intent(getApplicationContext(),ListaDeTarefasActivity.class);
-                                startActivity(i);
-                            }
-                        }).show();
+               enviarEmail();
             }
         });
 
@@ -79,5 +72,21 @@ public class NavigationActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    private void enviarEmail(){
+        //teste de enviar ligação
+        //  Intent i = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:31988833740"));
+        //  String imagemVisualizada = "https://bhmodels.com.br/uploads/images/timeline/s-15791859447TPSL6Hwwf.jpeg";
+        //Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(imagemVisualizada));
+        String email = "admredinfun@gmail.com";
+        Intent i = new Intent(Intent.ACTION_SEND);
+        i.putExtra(Intent.EXTRA_EMAIL, new String[]{email,"junior.raveline@gmail.com","italosanches@gmail.com"});
+        i.putExtra(Intent.EXTRA_SUBJECT,"Contato pelo app.");
+        i.putExtra(Intent.EXTRA_TEXT,"Fale conosco");
+        i.setType("message/rfc822");
+        startActivity(Intent.createChooser(i,"Compartilhar"));
+        startActivity(i);
+
     }
 }

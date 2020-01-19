@@ -17,8 +17,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Objects;
-
 import br.com.aplicacoessql.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -141,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public void carregarElementos(){
+    private void carregarElementos(){
         textoNomeDigitado = findViewById(R.id.edit_text_input_id_nome);
         botaoSalvarDados = findViewById(R.id.botao_salvar_id_dados);
         textoNomeExibido = findViewById(R.id.nome_resultado_text_id);

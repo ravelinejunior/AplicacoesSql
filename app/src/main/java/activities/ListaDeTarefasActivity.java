@@ -7,7 +7,6 @@ import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.textfield.TextInputEditText;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,17 +46,23 @@ public class ListaDeTarefasActivity extends AppCompatActivity {
 
         //instanciando valores do banco de dados
         HelperBD db = new HelperBD(getApplicationContext());
+try {
 
-        //criar estrutura para salvar dados
-        ContentValues cv = new ContentValues(); // permite definir itens como arrays
-        //cv.put("tarefasNome","Teste");
 
-        db.getWritableDatabase().insert("tarefas",null,cv); // serve para poder escrever no banco de dados (salvar dados)
+    //criar estrutura para salvar dados
+    ContentValues cv = new ContentValues(); // permite definir itens como arrays
+    //cv.put("tarefasNome","Teste");
 
+    db.getWritableDatabase().insert("tarefas", null, cv); // serve para poder escrever no banco de dados (salvar dados)
+}catch (Exception e){
+    e.printStackTrace();
+}
         //adicionar evento de clique
         recyclerViewListaTarefas.addOnItemTouchListener(new ClickListener(getApplicationContext(),
                 recyclerViewListaTarefas,
-                new ClickListener.OnItemClickListener() {
+                new ClickListener.OnItemClickListener(){
+
+
                     @Override
                     public void onItemClick(View view, int position) {
                         //recuperar tarefa para edição
@@ -141,7 +145,7 @@ public class ListaDeTarefasActivity extends AppCompatActivity {
         super.onStart();
     }
 
-    public void carregarListaTarefas(){
+    private void carregarListaTarefas(){
     //listar tarefas
 
     TarefaDAO tarefaDAO = new TarefaDAO(getApplicationContext()); //para recuperar a lista de tarefas

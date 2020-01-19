@@ -4,7 +4,7 @@ import java.util.List;
 
 import models.Tarefas;
 
-public interface iTarefasDAO {
+interface iTarefasDAO {
 
     public boolean salvar(Tarefas tarefas);
     public boolean deletar(Tarefas tarefas);

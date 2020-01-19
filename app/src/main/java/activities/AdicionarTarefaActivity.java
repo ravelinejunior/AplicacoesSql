@@ -3,15 +3,11 @@ package activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 
 import br.com.aplicacoessql.R;
@@ -60,7 +56,7 @@ public class AdicionarTarefaActivity extends AppCompatActivity {
                     if (!tarefasNomeDigitado.isEmpty()){
 
                         Tarefas tarefas = new Tarefas();
-                        tarefas.setTarefaNome(tarefaClicada.getTarefaNome());
+                        tarefas.setTarefaNome(tarefasNomeDigitado);
                         tarefas.setId(tarefaClicada.getId());
 
                         //atualizar dados no banco de dados

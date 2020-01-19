@@ -13,8 +13,8 @@ import models.Tarefas;
 public class TarefaDAO implements iTarefasDAO {
     //DATA ACCESS OBJECT (salvando dados)
     //criar uma interface para implementar alguns metodos
-    private SQLiteDatabase escreveDadosTabela;
-    private SQLiteDatabase leDadosTabela;
+    private final SQLiteDatabase escreveDadosTabela;
+    private final SQLiteDatabase leDadosTabela;
 
     public TarefaDAO(Context context) {
 
